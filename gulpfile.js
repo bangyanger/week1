@@ -25,3 +25,18 @@ gulp.task('web', function() {
             open: true
         }))
 })
+
+
+gulp.task("ycss", function() {
+    return gulp.src("src/css/index.css")
+        .pipe(cleancss())
+        .pipe(gulp.dest("dist/css/"))
+})
+
+gulp.task("yjs", function() {
+    return gulp.src("src/js/*.js")
+        .pipe(concat('all.js'))
+        .pipe(uglify())
+
+    .pipe(gulp.dest("dist/js/"))
+})
